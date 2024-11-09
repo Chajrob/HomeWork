@@ -1,4 +1,4 @@
-example = 'integration'
+]example = 'integration'
 print(example[0])
 print(example[-1])
 print(example[5:])
