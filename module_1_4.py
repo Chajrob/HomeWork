@@ -1,6 +1,4 @@
 my_string = input('Введите текст: ')
-#print(my_string)
-#print('python developer'.upper())
 print(my_string.upper())
 print(my_string.lower())
 print(my_string.replace(' ', ''))
