@@ -11,4 +11,3 @@ print('Set:', my_set)
 my_set.update({'paper', 12})
 my_set.discard(5)
 print('Modified Set:', my_set)
-
