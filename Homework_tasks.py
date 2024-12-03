@@ -161,9 +161,10 @@ if 1 < 5:
 #     for j in range(1, 11):
 #         print(f'{i} x {j} = {i * j}') # print(i, 'x', j, '=', i * j) # примит.вариант
 
-dict_ = {'a': 1, 'b': 2, 'c': 3}
-print(dict_)
-for i in dict_:
-    print(i, dict_[i])
-for i, k in dict_.items():
-    print(i, k)
+# dict_ = {'a': 1, 'b': 2, 'c': 3}
+# print(dict_)
+# for i in dict_:
+#     print(i, dict_[i])
+#
+# for i, k in dict_.items():
+#     print(i, k)
