@@ -139,8 +139,31 @@ print(a)
 print('Я тут')
 sleep(4)
 print('Фуч, 4 секунды прошло')
-'''
+
 name = input('Enter your name ')
 if 1 < 5:
     print('ok')
     print('not ok')
+'''
+
+# list_ = ['one', 'two', 'three']
+# for i in range (len(list_)):
+#     list_[i] = ' :('
+# #    print(list_[i])
+# print(list_)
+# list_2 = [2, 3, 4, 5, 1]
+# sum_ = 0
+# for i in range(len(list_2)):
+#     sum_ += list_2[i]
+# print(sum_)
+
+# for i in range(1, 11):
+#     for j in range(1, 11):
+#         print(f'{i} x {j} = {i * j}') # print(i, 'x', j, '=', i * j) # примит.вариант
+
+dict_ = {'a': 1, 'b': 2, 'c': 3}
+print(dict_)
+for i in dict_:
+    print(i, dict_[i])
+for i, k in dict_.items():
+    print(i, k)
