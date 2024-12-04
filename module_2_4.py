@@ -6,9 +6,10 @@ for i in numbers[1:]:
     for j in numbers[1:i]:
         if i % j == 0:
             k += 1
-    if k > 1:
-        not_primes += [i]
-    else:
+        if k > 1:
+            not_primes += [i]
+            break
+    if k == 1:
         primes += [i]
 print('Primes:', primes)
 print('Not Primes:', not_primes)
