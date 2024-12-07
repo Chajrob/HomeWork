@@ -144,27 +144,66 @@ name = input('Enter your name ')
 if 1 < 5:
     print('ok')
     print('not ok')
+
+
+list_ = ['one', 'two', 'three']
+for i in range (len(list_)):
+    list_[i] = ' :('
+    print(list_[i])
+print(list_)
+list_2 = [2, 3, 4, 5, 1]
+sum_ = 0
+for i in range(len(list_2)):
+    sum_ += list_2[i]
+print(sum_)
+
+for i in range(1, 11):
+    for j in range(1, 11):
+        print(f'{i} x {j} = {i * j}') # print(i, 'x', j, '=', i * j) # примит.вариант
+
+dict_ = {'a': 1, 'b': 2, 'c': 3}
+print(dict_)
+for i in dict_:
+    print(i, dict_[i])
+
+for i, k in dict_.items():
+    print(i, k)
+
+def say_hello(name):
+    print('Hello', name)
+say_hello('Denis')
+say_hello('Max')
+say_hello('Anton')
 '''
+'''
+import random
+def lottery(mon, tue):
+    tickets = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    win1 = random.choice(tickets)
+    tickets.remove(win1)
+    win2 = random.choice(tickets)
+    print(mon, tue)
+    return win1, win2
+win1, win2 = lottery('mon', 'tue')
+print(win1, win2)
 
-# list_ = ['one', 'two', 'three']
-# for i in range (len(list_)):
-#     list_[i] = ' :('
-# #    print(list_[i])
-# print(list_)
-# list_2 = [2, 3, 4, 5, 1]
-# sum_ = 0
-# for i in range(len(list_2)):
-#     sum_ += list_2[i]
-# print(sum_)
+def lottery_(*args, **kwargs):
+    tickets = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    win1 = random.choice(tickets)
+    tickets.remove(win1)
+    win2 = random.choice(tickets)
+    print(*args)
+    return win1, win2
+win1, win2 = lottery_(1, 2, 3, 4, 5, 6 ,7, 8, 9, 10)
+print(win1, win2)
+'''
+def test(a=2, b=True):
+    print(a, b)
 
-# for i in range(1, 11):
-#     for j in range(1, 11):
-#         print(f'{i} x {j} = {i * j}') # print(i, 'x', j, '=', i * j) # примит.вариант
-
-# dict_ = {'a': 1, 'b': 2, 'c': 3}
-# print(dict_)
-# for i in dict_:
-#     print(i, dict_[i])
-#
-# for i, k in dict_.items():
-#     print(i, k)
+test()
+test(False, 'ok')
+test([1, 2])
+test(*[3, 4])
+test(**{'a':55, 'b':99})
+test(**{'b':99})
+test(**{'a':55})
