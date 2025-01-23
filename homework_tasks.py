@@ -196,7 +196,7 @@ def lottery_(*args, **kwargs):
     return win1, win2
 win1, win2 = lottery_(1, 2, 3, 4, 5, 6 ,7, 8, 9, 10)
 print(win1, win2)
-'''
+
 def test(a=2, b=True):
     print(a, b)
 
@@ -207,3 +207,238 @@ test(*[3, 4])
 test(**{'a':55, 'b':99})
 test(**{'b':99})
 test(**{'a':55})
+'''
+'''
+def draw_area():
+    for i in area:
+        print(*i)
+    print()
+
+area = [['1', '2', '3'], ['4', '5', '6'], ['7', '8', '9']]
+print('Добро пожаловать в крестики-нолики')
+print('__________________________________')
+draw_area()
+
+row = int(input('Введите число (1, 2, 3) ')) - 1
+columt = int(input('Введите число (1, 2, 3) ')) - 1
+area[0][0] = 'X'
+draw_area()
+'''
+'''
+a = 'kukushka'
+b = 'balalayka'
+print(a[-2:])
+if 'ka' not in a and b or 'ba' in b: # or 'sk' not in a:
+    if a != b:
+        print('you can')
+    else:
+        print("you can't")
+else:
+    print('impossible')
+'''
+'''
+def test_func(*params):
+    print('Тип:', type(params))
+    print('аргумент:', params)
+
+test_func(1, 2, 3, 4)
+'''
+'''
+def summator (txt, *value, type='sum'):
+    s = 0
+    for i in value:
+        s += i
+    return f'{txt} {s} {type}'
+
+print(summator('Сумма чисел:', 2,2, 3, 4, type='summator'))
+'''
+'''
+def info(txt, *types, name_author = 'Den', **values):
+    print('тип:', type(values))
+    print('аргумент:', values)
+    for key, value in values.items():
+        print( key, value)
+    print('name_author: ', name_author)
+    print(types)
+info('Пример разнообразия типов:', 1, 2, 3, 4, name_author = 'Denis', name = 'Den', course = 'Python')
+'''
+'''
+def my_sum(n, *args, txt='Сумма чисел: '):
+    s = 0
+    for i in range(len(args)):
+        s += args[i] ** n
+    print(txt + ':', s)
+
+my_sum(1, 1, 2, 3, 4, 5)
+my_sum(2, 1, 2, 3, 4, 5, txt='Сумма квадратов')
+my_sum(3, 1, 2, 3, 4, 5, txt='Сумма кубов')
+'''
+'''
+def summa(n):
+    if n == 0:
+        return 0
+    else:
+        return n + summa(n - 1)
+
+print(summa(10))
+'''
+'''
+def find_max(list_):
+    max_ = list_[0]
+    for i in list_:
+        if i > max_:
+            max_ = i
+    return max_
+
+print(find_max([0, 1, 4, -2, 94, 52, -32, 8]))
+
+def count_even(list_):
+    counter = 0
+    for i in list_:
+        if i == 0:
+            continue
+        if i % 2 == 0:
+            counter += 1
+    return counter
+
+print(count_even([1, 3, -5, -6, 0, 57, 84, 29, 4, 16]))
+
+def unique(list_):
+    new_list = []
+    for i in list_:
+        if i not in new_list:
+            new_list.append(i)
+    return new_list
+
+print(unique([1, 4, 5, 7, 9, 8, 4, 5, 41, 2, 7, 1.0]))
+'''
+'''
+def isPrime(n):
+    for i in range(2, n // 2 + 1):
+        if n % i == 0:
+            return False
+    return True
+
+print(isPrime(11))
+'''
+'''
+import sys
+
+for path in sys.path:
+    print(path)
+print('----------------')
+for argv in sys.argv:
+    print(argv)
+'''
+'''
+from dis import dis
+
+def some_funs():
+    a = "I'm from second module"
+    print("I'm from second MODULE")
+    return a
+
+print(some_funs())
+dis(some_funs)
+'''
+'''import math
+
+def print(*args):
+    return 'Ok'
+
+def square(x):
+    d = x ** 2
+    print(1, locals())
+    return d
+
+a = 5
+b = square(2)
+print(a)
+print(b)
+print(2, globals())
+'''
+'''a = 10
+
+def outer():
+    a = 5
+
+def inner():
+    print(a)
+
+inner()
+outer()'''
+'''import math
+d = 7
+
+def square(x):
+    d = x ** 2
+    def even(x):
+        d = x / 2
+        if d % 2 == 0:
+            print(d, 'Четное')
+        else:
+            print(d, 'Нечетное')
+    even(x)
+    return d
+
+a = 5
+b = square(7)
+print('a', a)
+print('b', b)
+print('d', d)
+'''
+'''from module_4.sortfunc import *
+
+data_1 = list(map(int, input('Введите цифры с пробелом: ').split()))
+data_2 = list(map(int, input('Введите цифры с пробелом: ').split()))
+data_3 = list(map(int, input('Введите цифры с пробелом: ').split()))
+
+print(bubble_sort(data_1))
+print(selection_sort(data_2))
+print(insertion_sort(data_3))'''
+'''class Human:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+        self.say_info()
+
+    def say_info(self):
+        print(f"Hello, my name's {self.name}. I'm {self.age}")
+
+    def birthday(self):
+        self.age += 1
+        print(f"Hello, it's my birthday today. I'm {self.age}")
+
+    def __str__(self):
+        return f'{self.name}'
+
+    def __len__(self):
+        return self.age
+
+    def __lt__(self, other):
+        return self.age < other.age
+
+    def __gt__(self, other):
+        return self.age > other.age
+
+    def __eq__(self, other):
+        return self.name == other.name and self.age == other.age
+
+    def __bool__(self):
+        return bool(self.age)
+
+    # def __del__(self):
+    #     print(f'{self.name} go out')
+
+den = Human('denis', 22)
+dim = Human('dmitriy', 22)
+print(den == dim)
+dim.birthday()
+print(dim == den)
+print(dim.__len__())
+print(len(dim))
+if den:
+    den.say_info()
+print('++++++++++')
+a = 6
+print(den, dim)'''
