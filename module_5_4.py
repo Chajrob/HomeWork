@@ -19,7 +19,6 @@ print(House.houses_history)
 h3 = House('ЖК Матрёшки', 20)
 print(House.houses_history)
 
-# Удаление объектов
 del h2
 del h3
 
