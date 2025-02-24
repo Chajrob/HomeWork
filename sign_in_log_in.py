@@ -27,12 +27,22 @@ if __name__ == '__main__':
             else:
                 print('Пользователь не найден.')
         if choice == 2:
-            user = User(input('Введите логин: '), password := input('Введите пароль: '),
+            user = User(login := input('Введите логин: '), password := input('Введите пароль: '),
                         password2 := input('Подтвердите пароль: '))
-            #        вписать систему проверки пароля: мин 8 символов,
-            #        1 заглавная буква и 1 цифра в пароле.
-            if password != password2:
-                print('Пароли не совпадают, попробуйте еще раз.')
+            if (len(password) >= 8 and not password.isalpha() and not password.isdigit()
+                    and not password.islower() and not password.isupper()):
+                if password == password2:
+                    print(f'{login} успешно зарегистрирован.')
+                else:
+                    print('Пароли не совпадают, попробуйте еще раз.')
+                    continue
+            else:
+                print('Требование к паролю:'
+                      '\n - не менее 8 символов'
+                      '\n - использование заглавных'
+                      '\n - использование строчных букв'
+                      '\n - использование цифр'
+                      '\n попробуйте еще раз.')
                 continue
-        database.add_user(user.username, user.password)
+            database.add_user(user.username, user.password)
         print(database.data)
