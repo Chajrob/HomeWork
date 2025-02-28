@@ -1,3 +1,4 @@
+# Рекурсия
 def get_multiplied_digits(number):
     while number % 10 == 0:
         number /= 10
