@@ -397,6 +397,9 @@ print(bubble_sort(data_1))
 print(selection_sort(data_2))
 print(insertion_sort(data_3))'''
 '''class Human:
+
+    head = True
+
     def __init__(self, name, age):
         self.name = name
         self.age = age
@@ -441,4 +444,75 @@ if den:
     den.say_info()
 print('++++++++++')
 a = 6
-print(den, dim)'''
+print(Human.head)'''
+'''
+# паnтерн Singleton
+# __new__(cls) - вызывается перед созданием объекта класса
+# super() - позволяет вызывать методы родительского класса (нр., Object)
+#           из дочернего класса (нр, User)
+# __instance = None - используется в паттерне Singleton. Он хранит ссылку на экземпляр класса,
+#                    и если такого экземпляра нет, то атрибут принимает значение None
+# setattr() - метод задает для каждого объекта класса соответствующий ключ и
+#             сохраняет в него значение self, key, values
+class User:
+    __instance = None
+    def __new__(cls, *args, **kwargs):
+        print('Я в НЬЮ')
+        if cls.__instance is None:
+            cls.__instance = super().__new__(cls)
+        return cls.__instance
+
+    def __init__(self, *args, **kwargs):
+        print('Я в ИНИТЕ')
+        self.args = args
+        for key, values in kwargs.items():
+            setattr(self, key, values)
+
+other = [1, 2, 3]
+user = {'name': 'Denis', 'age': 25, 'gender': 'male'}
+
+user1 = User(*other, **user)
+print(user1)
+print(user1.args)
+print(user1.name)
+print(user1.age)
+print(user1.gender)'''
+'''class User:
+    def __init__(self, username, password, password_config):
+        self.username = username
+        if password == password_config:
+            self.password = password
+
+class Database:
+    def __init__(self):
+        self.data = {}
+
+    def add_user(self, username, password):
+        self.data[username] = password
+
+if __name__ == '__main__':
+    database = Database()
+    while True:
+        choice = int(input('Приветствую! Выберите действие:\n1 - Вход\n2 - Регистрация\n'))
+        if choice == 1:
+            login = input('Введите логин: ')
+            password = input('Введите пароль: ')
+            if login in database.data:
+                if password == database.data[login]:
+                    print(f'Вход выполнен, {login}')
+                    break
+                else:
+                    print('Неверный пароль')
+            else:
+                print('Пользователь не найден.')
+        if choice == 2:
+            user = User(input('Введите логин: '), password := input('Введите пароль: '),
+                        password2 := input('Подтвердите пароль: '))
+            #        вписать систему проверки пароля: мин 8 символов,
+            #        1 заглавная буква и 1 цифра в пароле.
+            if password != password2:
+                print('Пароли не совпадают, попробуйте еще раз')
+                continue
+        database.add_user(user.username, user.password)
+        print(database.data)'''
+
